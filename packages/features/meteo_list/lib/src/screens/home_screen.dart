@@ -16,6 +16,8 @@ class _HomeScreenState extends State<HomeScreen> {
     _fetchMeteo();
   }
 
+  int selectedLocation = 0;
+
   _fetchMeteo() {
     if (context.read<MeteoListProvider>().state.meteo.isEmpty) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -31,14 +33,16 @@ class _HomeScreenState extends State<HomeScreen> {
       return const Center(
         child: Text('Home Screen'),
       );
-    }    
+    }
 
     return Container(
       child: state.status == MeteoListStatus.loading
           ? const Center(
               child: CircularProgressIndicator(),
             )
-          : MeteoCard(meteo: state.meteo[1],),
+          : MeteoCard(
+              meteo: state.meteo[selectedLocation],
+            ),
     );
   }
 
@@ -50,6 +54,33 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: Colors.lightBlue,
         title: const Text('Meteo App'),
+        actions: [
+          PopupMenuButton(
+            onSelected: (value) {
+              setState(
+                () {
+                  selectedLocation = value;
+                },
+              );
+            },
+            itemBuilder: (BuildContext context) {
+              return [
+                const PopupMenuItem(
+                  value: 0,
+                  child: Text('Saint-Imier'),
+                ),
+                const PopupMenuItem(
+                  value: 1,
+                  child: Text('Bienne'),
+                ),
+                const PopupMenuItem(
+                  value: 2,
+                  child: Text('Les Bois'),
+                ),
+              ];
+            },
+          )
+        ],
       ),
       body: _showMeteo(),
     );
