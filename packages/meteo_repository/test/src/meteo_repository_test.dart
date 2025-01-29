@@ -21,7 +21,7 @@ void main() {
 
   void preparerMockGet200() {
     const response =
-        '[{"latitude":47.16,"longitude":7.02,"generationtime_ms":0.0278949737548828,"utc_offset_seconds":3600,"timezone":"Europe/Berlin","timezone_abbreviation":"GMT+1","elevation":825,"daily_units":{"time":"iso8601","temperature_2m_max":"°C","temperature_2m_min":"°C"},"daily":{"time":["2025-01-28"],"temperature_2m_max":[5.3],"temperature_2m_min":[1.7]}},{"latitude":47.18,"longitude":6.9,"generationtime_ms":0.0140666961669922,"utc_offset_seconds":3600,"timezone":"Europe/Berlin","timezone_abbreviation":"GMT+1","elevation":1037,"location_id":1,"daily_units":{"time":"iso8601","temperature_2m_max":"°C","temperature_2m_min":"°C"},"daily":{"time":["2025-01-28"],"temperature_2m_max":[3.5],"temperature_2m_min":[0.2]}}]';
+        '[{"latitude":47.16,"longitude":7.02,"generationtime_ms":0.02765655517578125,"utc_offset_seconds":0,"timezone":"Europe/Berlin","timezone_abbreviation":"Europe/Berlin","elevation":777.0,"daily_units":{"time":"iso8601","temperature_2m_max":"°C","temperature_2m_min":"°C"},"daily":{"time":["2025-01-28"],"temperature_2m_max":[6.5],"temperature_2m_min":[2.5]}},{"latitude":47.18,"longitude":6.9,"generationtime_ms":0.015974044799804688,"utc_offset_seconds":0,"timezone":"Europe/Berlin","timezone_abbreviation":"Europe/Berlin","elevation":1026.0,"location_id":1,"daily_units":{"time":"iso8601","temperature_2m_max":"°C","temperature_2m_min":"°C"},"daily":{"time":["2025-01-28"],"temperature_2m_max":[4.9],"temperature_2m_min":[0.8]}}]';
 
     when(() => mockClient.get(Uri.parse(url)))
         .thenAnswer((_) async => http.Response(response, 200));
@@ -40,11 +40,17 @@ void main() {
         latitude: 47.16,
         longitude: 7.02,
         timezone: "Europe/Berlin",
+        date: ["2025-01-28"],
+        temperatureMax: [6.5],
+        temperatureMin: [2.5]
       ),
       Meteo(
         latitude: 47.18,
         longitude: 6.9,
         timezone: "Europe/Berlin",
+        date: ["2025-01-28"],
+        temperatureMax: [4.9],
+        temperatureMin: [0.8]
       ),
     ];
 

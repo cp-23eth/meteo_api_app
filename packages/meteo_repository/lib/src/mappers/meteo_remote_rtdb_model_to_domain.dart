@@ -7,9 +7,9 @@ extension MeteoRemoteRtdbModelToDomain on MeteoRemoteRtdbModel {
       latitude: latitude,
       longitude: longitude,
       timezone: timezone,
-      // date: date,
-      // temperatureMax: temperatureMax,
-      // temperatureMin: temperatureMin,
+      date: date,
+      temperatureMax: temperatureMax,
+      temperatureMin: temperatureMin,
     );
   }
 }

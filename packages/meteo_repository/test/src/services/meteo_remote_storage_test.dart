@@ -6,14 +6,14 @@ void main() {
   late Map<String, dynamic> json;
   setUp(() {
     json = {
-      "latitude": 47.16,
+      "latitude": 47.12,
       "longitude": 7.02,
-      "timezone": "Europe/Berlin"/*,*/
-      // "daily": {
-      //   "time": ["2025-01-28"],
-      //   "temperature_2m_max": [5.3],
-      //   "temperature_2m_min": [2.2]
-      // }
+      "timezone": "Europe/Berlin",
+      "daily": {
+        "time": ["2025-01-28"],
+        "temperature_2m_max": [5.3],
+        "temperature_2m_min": [2.2]
+      }
     };
   });
 
@@ -27,9 +27,9 @@ void main() {
       latitude: 47.12,
       longitude: 7.02,
       timezone: "Europe/Berlin",
-      // date: ["2025-01-28"],
-      // temperatureMax: [5.3],
-      // temperatureMin: [2.2],
+      date: ["2025-01-28"],
+      temperatureMax: [5.3],
+      temperatureMin: [2.2],
     );
     final result = MeteoRemoteRtdbModel.fromJson(json).toDomainEntity();
     expect(result, meteo);

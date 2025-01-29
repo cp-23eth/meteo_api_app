@@ -1,18 +1,21 @@
 import 'package:domain_entities/domain_entites.dart';
 import 'package:flutter/material.dart';
-import 'dart:developer' as dev;
 
 class MeteoCard extends StatelessWidget {
   const MeteoCard({required this.meteo, super.key});
 
   final Meteo meteo;
 
+  String cleanValue(dynamic value) {
+    // Convertit en chaîne et supprime les crochets si présents
+    return value.toString().replaceAll(RegExp(r'^\[|\]$'), '');
+  }
+
   @override
   Widget build(BuildContext context) {
-    dev.log('${meteo.latitude}');
-    dev.log('${meteo.longitude}');
-    dev.log('${meteo.timezone}');
-    dev.log('salut');
+    String temperatureMax = cleanValue(meteo.temperatureMax);
+    String temperatureMin = cleanValue(meteo.temperatureMin);
+    String date = cleanValue(meteo.date);
     return Container(
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
@@ -42,27 +45,27 @@ class MeteoCard extends StatelessWidget {
             'Timezone: ${meteo.timezone}',
             style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
           ),
-          const Text(
-            'Date: 2025-01-28',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+          Text(
+            'Date: $date',
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
           ),
-          const Row(
+          Row(
             children: [
-              Icon(Icons.thermostat, color: Colors.red),
-              SizedBox(width: 8),
+              const Icon(Icons.thermostat, color: Colors.red),
+              const SizedBox(width: 8),
               Text(
-                'Max Temp: 18°C',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                'Max Temp: $temperatureMax°C',
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
               ),
             ],
           ),
-          const Row(
+          Row(
             children: [
-              Icon(Icons.thermostat, color: Colors.blue),
-              SizedBox(width: 8),
+              const Icon(Icons.thermostat, color: Colors.blue),
+              const SizedBox(width: 8),
               Text(
-                'Min Temp: 5°C',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                'Min Temp: $temperatureMin°C',
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
               ),
             ],
           ),

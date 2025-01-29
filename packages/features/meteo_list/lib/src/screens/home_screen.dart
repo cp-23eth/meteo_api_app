@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ? const Center(
               child: CircularProgressIndicator(),
             )
-          : MeteoCard(meteo: state.meteo[2],),
+          : MeteoCard(meteo: state.meteo[1],),
     );
   }
 
