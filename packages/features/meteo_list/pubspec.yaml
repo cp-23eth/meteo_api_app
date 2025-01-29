@@ -1,0 +1,26 @@
+name: meteo_list
+publish_to: none
+
+environment:
+  sdk: ^3.6.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  component_library:
+    path: ../../component_library
+  domain_entities:
+    path: ../../domain_entities
+  meteo_repository:
+    path: ../../meteo_repository
+  intl: ^0.20.2
+  provider: ^6.1.2
+  equatable: ^2.0.7
+
+dev_dependencies:
+  flutter_lints: ^4.0.0
+
+flutter:
+  generate: true
+  uses-material-design: true

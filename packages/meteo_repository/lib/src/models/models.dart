@@ -1,0 +1,1 @@
+export 'meteo_remote_rtdb_model.dart';

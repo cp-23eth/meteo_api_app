@@ -1,0 +1,19 @@
+name: component_library
+publish_to: none
+
+environment:
+  sdk: ^3.6.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  domain_entities:
+    path: ../domain_entities
+  logger: ^2.5.0
+
+dev_dependencies:
+  flutter_lints: ^4.0.0
+
+flutter:
+  generate: true
+  uses-material-design: true

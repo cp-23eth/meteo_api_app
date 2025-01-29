@@ -1,0 +1,1 @@
+export 'src/meteo_1_place.dart';
