@@ -1,5 +1,6 @@
 import 'package:domain_entities/domain_entites.dart';
 import 'package:flutter/material.dart';
+import 'dart:developer' as dev;
 
 class MeteoCard extends StatelessWidget {
   const MeteoCard({required this.meteo, super.key});
@@ -8,6 +9,10 @@ class MeteoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    dev.log('${meteo.latitude}');
+    dev.log('${meteo.longitude}');
+    dev.log('${meteo.timezone}');
+    dev.log('salut');
     return Container(
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(

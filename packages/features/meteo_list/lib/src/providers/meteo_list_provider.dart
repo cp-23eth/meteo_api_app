@@ -20,5 +20,6 @@ class MeteoListProvider with ChangeNotifier {
     final datas = await repository.getAllMeteo();
 
     _state = _state.copyWith(status: MeteoListStatus.loaded, meteo: datas);
+    notifyListeners();
   }
 }

@@ -31,14 +31,14 @@ class _HomeScreenState extends State<HomeScreen> {
       return const Center(
         child: Text('Home Screen'),
       );
-    }
+    }    
 
     return Container(
       child: state.status == MeteoListStatus.loading
           ? const Center(
               child: CircularProgressIndicator(),
             )
-          : MeteoCard(meteo: state.meteo[0],),
+          : MeteoCard(meteo: state.meteo[2],),
     );
   }
 
