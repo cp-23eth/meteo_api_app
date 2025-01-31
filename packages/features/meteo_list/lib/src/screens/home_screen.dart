@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ? const Center(
               child: CircularProgressIndicator(),
             )
-          : MeteoCard(
+          : MeteoDesign(
               meteo: state.meteo[selectedLocation],
             ),
     );
@@ -50,10 +50,19 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     // final state = context.watch<MeteoListProvider>().state;
 
+    String loca = '';
+    if(selectedLocation == 0){
+      loca = 'Saint-Imier';
+    } else if(selectedLocation == 1){
+      loca = 'Les Bois';
+    } else if(selectedLocation == 2){
+      loca = 'Bienne';
+    }
+
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lightBlue,
-        title: const Text('Meteo App'),
+        backgroundColor: Colors.lightBlue[200],
+        title: Text('Meteo App - $loca',),
         actions: [
           PopupMenuButton(
             onSelected: (value) {
@@ -71,11 +80,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const PopupMenuItem(
                   value: 1,
-                  child: Text('Bienne'),
+                  child: Text('Les Bois'),
                 ),
                 const PopupMenuItem(
                   value: 2,
-                  child: Text('Les Bois'),
+                  child: Text('Bienne'),
                 ),
               ];
             },
