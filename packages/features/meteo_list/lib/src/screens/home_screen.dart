@@ -61,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lightBlue[200],
+        backgroundColor: const Color(0xFFd4a373),
         title: Text('Meteo App - $loca',),
         actions: [
           PopupMenuButton(

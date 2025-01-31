@@ -10,7 +10,7 @@ import 'package:logger/logger.dart';
 import 'package:meteo_repository/meteo_repository.dart';
 
 class MeteoRemoteStorage implements MeteoStorage {
-  static const url = 'https://api.open-meteo.com/v1/forecast?latitude=47.1528,47.1771,47.1371&longitude=6.9969,6.905,7.2461&daily=temperature_2m_max,temperature_2m_min&timezone=Europe%2FBerlin&forecast_days=1';
+  static const url = 'https://api.open-meteo.com/v1/forecast?latitude=47.16,47.18,47.12&longitude=7.02,6.9,7.2599998&current=temperature_2m,is_day,rain,snowfall,weather_code&daily=temperature_2m_max,temperature_2m_min&timezone=Europe%2FBerlin&forecast_days=1';
 
   MeteoRemoteStorage({@visibleForTesting http.Client? client})
       : _client = client ?? http.Client();

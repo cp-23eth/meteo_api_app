@@ -15,12 +15,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const meteo = Meteo(
-        latitude: 45.12,
-        longitude: 56.23,
-        timezone: 'Europe/Berlin',
-        date: ['25-02-2025'],
-        temperatureMax: [2.5],
-        temperatureMin: [0.2]);
+      latitude: 45.12,
+      longitude: 56.23,
+      timezone: 'Europe/Berlin',
+      date: ['25-02-2025'],
+      temperatureMax: [2.5],
+      temperatureMin: [0.2],
+      temperature: 1.2,
+      weatherCode: 3,
+    );
 
     return Storybook(
       initialStory: 'Widget/Meteo/test',

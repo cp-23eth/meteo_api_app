@@ -13,6 +13,10 @@ void main() {
         "time": ["2025-01-28"],
         "temperature_2m_max": [5.3],
         "temperature_2m_min": [2.2]
+      },
+      "current": {
+        "temperature_2m": 2.7,
+        "weather_code": 3
       }
     };
   });
@@ -30,6 +34,8 @@ void main() {
       date: ["2025-01-28"],
       temperatureMax: [5.3],
       temperatureMin: [2.2],
+      temperature: 2.7,
+      weatherCode: 3,
     );
     final result = MeteoRemoteRtdbModel.fromJson(json).toDomainEntity();
     expect(result, meteo);

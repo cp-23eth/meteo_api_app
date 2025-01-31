@@ -12,7 +12,7 @@ void main() {
   final mockClient = MockHttpClient();
 
   const url =
-      'https://api.open-meteo.com/v1/forecast?latitude=47.1528,47.1771,47.1371&longitude=6.9969,6.905,7.2461&daily=temperature_2m_max,temperature_2m_min&timezone=Europe%2FBerlin&forecast_days=1';
+      'https://api.open-meteo.com/v1/forecast?latitude=47.16,47.18,47.12&longitude=7.02,6.9,7.2599998&current=temperature_2m,is_day,rain,snowfall,weather_code&daily=temperature_2m_max,temperature_2m_min&timezone=Europe%2FBerlin&forecast_days=1';
 
   setUp(() {
     meteoRepository =
@@ -21,7 +21,7 @@ void main() {
 
   void preparerMockGet200() {
     const response =
-        '[{"latitude":47.16,"longitude":7.02,"generationtime_ms":0.02765655517578125,"utc_offset_seconds":0,"timezone":"Europe/Berlin","timezone_abbreviation":"Europe/Berlin","elevation":777.0,"daily_units":{"time":"iso8601","temperature_2m_max":"°C","temperature_2m_min":"°C"},"daily":{"time":["2025-01-28"],"temperature_2m_max":[6.5],"temperature_2m_min":[2.5]}},{"latitude":47.18,"longitude":6.9,"generationtime_ms":0.015974044799804688,"utc_offset_seconds":0,"timezone":"Europe/Berlin","timezone_abbreviation":"Europe/Berlin","elevation":1026.0,"location_id":1,"daily_units":{"time":"iso8601","temperature_2m_max":"°C","temperature_2m_min":"°C"},"daily":{"time":["2025-01-28"],"temperature_2m_max":[4.9],"temperature_2m_min":[0.8]}}]';
+        '[{"latitude":47.16,"longitude":7.02,"generationtime_ms":0.02765655517578125,"utc_offset_seconds":0,"timezone":"Europe/Berlin","timezone_abbreviation":"Europe/Berlin","elevation":777.0,"current":{"temperature_2m":2.7,"weather_code":3},"daily_units":{"time":"iso8601","temperature_2m_max":"°C","temperature_2m_min":"°C"},"daily":{"time":["2025-01-28"],"temperature_2m_max":[6.5],"temperature_2m_min":[2.5]}},{"latitude":47.18,"longitude":6.9,"generationtime_ms":0.015974044799804688,"utc_offset_seconds":0,"timezone":"Europe/Berlin","timezone_abbreviation":"Europe/Berlin","elevation":1026.0,"location_id":1,"current":{"temperature_2m":2.7,"weather_code":3},"daily_units":{"time":"iso8601","temperature_2m_max":"°C","temperature_2m_min":"°C"},"daily":{"time":["2025-01-28"],"temperature_2m_max":[4.9],"temperature_2m_min":[0.8]}}]';
 
     when(() => mockClient.get(Uri.parse(url)))
         .thenAnswer((_) async => http.Response(response, 200));
@@ -42,7 +42,9 @@ void main() {
         timezone: "Europe/Berlin",
         date: ["2025-01-28"],
         temperatureMax: [6.5],
-        temperatureMin: [2.5]
+        temperatureMin: [2.5],
+        temperature: 2.7,
+        weatherCode: 3,
       ),
       Meteo(
         latitude: 47.18,
@@ -50,7 +52,9 @@ void main() {
         timezone: "Europe/Berlin",
         date: ["2025-01-28"],
         temperatureMax: [4.9],
-        temperatureMin: [0.8]
+        temperatureMin: [0.8],
+        temperature: 2.7,
+        weatherCode: 3,
       ),
     ];
 

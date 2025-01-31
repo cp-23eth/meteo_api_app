@@ -6,6 +6,8 @@ class MeteoRemoteRtdbModel {
     this.date,
     this.temperatureMax,
     this.temperatureMin,
+    this.temperature,
+    this.weatherCode,
   );
 
   factory MeteoRemoteRtdbModel.fromJson(Map<String, dynamic> json) {
@@ -16,6 +18,8 @@ class MeteoRemoteRtdbModel {
       List<String>.from(json['daily']['time']),
       List<double>.from(json['daily']['temperature_2m_max']),
       List<double>.from(json['daily']['temperature_2m_min']),
+      json['current']['temperature_2m'],
+      json['current']['weather_code'],
     );
   }
 
@@ -25,4 +29,6 @@ class MeteoRemoteRtdbModel {
   final List<String> date;
   final List<double> temperatureMax;
   final List<double> temperatureMin;
+  final double temperature;
+  final int weatherCode;
 }
