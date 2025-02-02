@@ -16,7 +16,13 @@ void main() {
       },
       "current": {
         "temperature_2m": 2.7,
-        "weather_code": 3
+        "weather_code": 3,
+        "relative_humidity_2m": 83.0,
+        "is_day": 1,
+        "precipitation": 0.0,
+        "rain": 0.0,
+        "snowfall": 0.0,
+        "wind_speed_10m": 2.0
       }
     };
   });
@@ -36,6 +42,12 @@ void main() {
       temperatureMin: [2.2],
       temperature: 2.7,
       weatherCode: 3,
+      relativeHumidity: 83.0,
+      isDay: 1,
+      precipitation: 0.0,
+      rain: 0.0,
+      snowfall: 0.0,
+      windSpeed: 2.0,
     );
     final result = MeteoRemoteRtdbModel.fromJson(json).toDomainEntity();
     expect(result, meteo);

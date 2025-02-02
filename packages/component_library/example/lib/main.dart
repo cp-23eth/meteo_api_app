@@ -23,6 +23,12 @@ class MyApp extends StatelessWidget {
       temperatureMin: [0.2],
       temperature: 1.2,
       weatherCode: 3,
+      relativeHumidity: 83.0,
+      isDay: 1,
+      precipitation: 0.0,
+      rain: 0.0,
+      snowfall: 0.0,
+      windSpeed: 2.0,
     );
 
     return Storybook(

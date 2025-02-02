@@ -18,6 +18,12 @@ extension MeteoRemoteRtdbModelToDomain on MeteoRemoteRtdbModel {
       temperatureMin: temperatureMin,
       temperature: temperature,
       weatherCode: weatherCode,
+      relativeHumidity: relativeHumidity,
+      isDay: isDay,
+      precipitation: precipitation,
+      rain: rain,
+      snowfall: snowfall,
+      windSpeed: windSpeed,
     );
   }
 }
