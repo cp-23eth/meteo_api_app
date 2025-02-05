@@ -21,7 +21,7 @@ class TestDesign extends StatelessWidget {
                   color: Color(0xFF303A52), // Bleu profond
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.3),
+                      color: Colors.black.withValues(alpha : 0.3),
                       blurRadius: 8,
                       spreadRadius: 2,
                       offset: Offset(2, 4),
@@ -63,7 +63,7 @@ class TestDesign extends StatelessWidget {
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.3),
+                      color: Colors.black.withValues(alpha : 0.3),
                       blurRadius: 8,
                       spreadRadius: 2,
                       offset: Offset(2, 4),
@@ -112,7 +112,7 @@ class TestDesign extends StatelessWidget {
                   color: Color(0xFF303A52), // Même couleur que la carte date
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.3),
+                      color: Colors.black.withValues(alpha : 0.3),
                       blurRadius: 8,
                       spreadRadius: 2,
                       offset: Offset(2, 4),

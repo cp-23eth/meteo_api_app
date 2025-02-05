@@ -10,6 +10,8 @@ dependencies:
   domain_entities:
     path: ../domain_entities
   logger: ^2.5.0
+  google_fonts: ^6.2.1
+  font_awesome_flutter: ^10.8.0
 
 dev_dependencies:
   flutter_lints: ^4.0.0

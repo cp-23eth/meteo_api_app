@@ -1,5 +1,6 @@
 import 'package:component_library/component_library.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:meteo_list/meteo_list.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -51,20 +52,27 @@ class _HomeScreenState extends State<HomeScreen> {
     // final state = context.watch<MeteoListProvider>().state;
 
     String loca = '';
-    if(selectedLocation == 0){
+    if (selectedLocation == 0) {
       loca = 'Saint-Imier';
-    } else if(selectedLocation == 1){
+    } else if (selectedLocation == 1) {
       loca = 'Les Bois';
-    } else if(selectedLocation == 2){
+    } else if (selectedLocation == 2) {
       loca = 'Bienne';
     }
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFFd4a373),
+        backgroundColor: const Color(0xFF725AC1),
         shadowColor: Colors.grey[500],
         elevation: 6,
-        title: Text('Meteo App - $loca',),
+        title: Text(
+          loca,
+          style: GoogleFonts.merriweather(
+            fontSize: 28,
+            fontWeight: FontWeight.w400,
+            color: Colors.white,
+          ),
+        ),
         actions: [
           PopupMenuButton(
             onSelected: (value) {
@@ -76,17 +84,35 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             itemBuilder: (BuildContext context) {
               return [
-                const PopupMenuItem(
+                PopupMenuItem(
                   value: 0,
-                  child: Text('Saint-Imier'),
+                  child: Text(
+                    'Saint-Imier',
+                    style: GoogleFonts.merriweather(
+                      color: Colors.grey[700],
+                      fontSize: 15,
+                    ),
+                  ),
                 ),
-                const PopupMenuItem(
+                PopupMenuItem(
                   value: 1,
-                  child: Text('Les Bois'),
+                  child: Text(
+                    'Les Bois',
+                    style: GoogleFonts.merriweather(
+                      color: Colors.grey[700],
+                      fontSize: 15,
+                    ),
+                  ),
                 ),
-                const PopupMenuItem(
+                PopupMenuItem(
                   value: 2,
-                  child: Text('Bienne'),
+                  child: Text(
+                    'Bienne',
+                    style: GoogleFonts.merriweather(
+                      color: Colors.grey[700],
+                      fontSize: 15,
+                    ),
+                  ),
                 ),
               ];
             },
